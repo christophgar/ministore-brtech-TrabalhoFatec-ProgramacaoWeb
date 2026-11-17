@@ -1,82 +1,26 @@
-# MiniStore
+# BrasilTech
 
-Sistema web com objetivo didático desenvolvido com Flask + MariaDB.
+Loja de hardware de demonstração para a disciplina de Programação Web. Usa Python, Flask e SQLite.
 
-
-## Pré-requisitos
-
-- Python 3.x
-- MariaDB instalado e rodando
-- Git configurado
-
-## Instalação
-
-### 1. Clone o repositório do professor
-
-```bash
-git clone https://github.com/gutosolar72/ministore.git
-cd ministore
-```
-
-### 2. Desvincule do repositório original e conecte ao seu
-
-```bash
-git remote remove origin
-git remote add origin https://github.com/SEU_USUARIO/ministore.git
-git push -u origin main
-```
-
-### 3. Crie e ative o ambiente virtual
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 4. Instale as dependências
+## Executar
 
 ```bash
 pip install -r requirements.txt
+python app.py
 ```
 
-### 5. Configure o banco de dados
+Abra http://127.0.0.1:5000.
 
-```bash
-python3 setup_db.py
-```
+Na primeira execução, o banco de exemplo em `demo/brasiltech.db` é copiado para `instance/brasiltech.db`. O arquivo em `instance/` guarda as alterações locais e não é enviado ao GitHub. Para recomeçar com os dados de exemplo, pare o servidor e remova `instance/brasiltech.db`.
 
-### 6. Execute a aplicação
+## Contas de demonstração
 
-```bash
-python3 app.py
-```
+| Perfil | E-mail | Senha |
+| --- | --- | --- |
+| Administrador | admin@brasiltech.com | Admin@123 |
+| Cliente | ana@email.com | Cliente@123 |
+| Cliente | pedro@email.com | Cliente@123 |
 
-Acesse em http://127.0.0.1:5000
+Os dados e pedidos são fictícios. Esta aplicação é um projeto acadêmico, não uma loja para vendas reais.
 
-## Estrutura do projeto
-
-```
-ministore/
-├── app.py              # ponto de entrada da aplicação
-├── database.py         # conexão com o banco de dados
-├── setup_db.py         # script de criação do banco
-├── requirements.txt    # dependências do projeto
-├── static/
-│   ├── css/style.css   # estilos globais
-│   └── js/main.js      # javascript global
-├── dashboard/          # módulo de dashboard (fornecido)
-├── clientes/           # módulo de clientes (fornecido)
-├── categorias/         # módulo a implementar
-├── produtos/           # módulo a implementar
-└── vendas/             # módulo a implementar
-```
-
-## Módulos a implementar
-
-| Módulo | Status |
-|--------|--------|
-| Dashboard | ✅ Pronto |
-| Clientes | ✅ Pronto |
-| Categorias | 🔲 Implementar |
-| Produtos | 🔲 Implementar |
-| Vendas | 🔲 Implementar |
+Veja [APRESENTACAO.md](APRESENTACAO.md) para um resumo das funcionalidades.

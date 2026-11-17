@@ -1,4 +1,4 @@
-import os, secrets, sqlite3
+import os, secrets, sqlite3, shutil
 from datetime import date
 from decimal import Decimal, InvalidOperation
 from io import BytesIO
@@ -13,6 +13,8 @@ app.secret_key=os.environ.get('SECRET_KEY') or secrets.token_hex(32)
 app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE='Lax')
 os.makedirs(app.instance_path,exist_ok=True)
 DATABASE=os.environ.get('STORE_DATABASE',os.path.join(app.instance_path,'brasiltech.db'))
+if not os.path.exists(DATABASE) and 'STORE_DATABASE' not in os.environ:
+    shutil.copyfile(Path(__file__).parent/'demo'/'brasiltech.db', DATABASE)
 def db():
     c=sqlite3.connect(DATABASE); c.row_factory=sqlite3.Row
     return c
